@@ -22,13 +22,13 @@ export default async function Blog() {
   return (
     <Section id="blog">
       <SectionTitle number="05" title="Blog" />
-      {posts.length === 0 ? (
+      {posts.length === 0 ?
         <div className="text-center py-16">
           <p className="text-[var(--foreground-muted)] font-mono text-sm">
             No posts yet — check back soon.
           </p>
           <a
-            href="https://medium.com/@dennisbui"
+            href="https://medium.com/@thanhduy_78508"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-block font-mono text-sm text-[var(--accent)] hover:underline"
@@ -36,8 +36,7 @@ export default async function Blog() {
             View on Medium ↗
           </a>
         </div>
-      ) : (
-        <>
+      : <>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {posts.map((post) => (
               <a
@@ -64,7 +63,7 @@ export default async function Blog() {
           </div>
           <div className="mt-8 text-center">
             <a
-              href="https://medium.com/@dennisbui"
+              href="https://medium.com/@thanhduy_78508"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-sm text-[var(--accent)] border border-[var(--accent)] px-6 py-3 rounded hover:bg-[var(--accent-muted)] transition-colors"
@@ -73,7 +72,7 @@ export default async function Blog() {
             </a>
           </div>
         </>
-      )}
+      }
     </Section>
   );
 }

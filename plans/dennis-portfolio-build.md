@@ -41,132 +41,116 @@ Step 1 (Setup)
 ## Steps
 
 ### Step 1 — Project Initialization
-**Status**: pending
-
-**Context brief**: Empty Next.js project needs to be scaffolded with the agreed tech stack. This is the foundation all other steps depend on.
+**Status**: ✅ done
 
 **Tasks**:
-- [ ] Scaffold Next.js 15 with TypeScript: `npx create-next-app@latest . --typescript --tailwind --app --src-dir --import-alias "@/*"`
-- [ ] Install dependencies: `framer-motion`, `rss-parser`, `@types/rss-parser`
-- [ ] Configure `next.config.ts`: image domains, RSS fetch allowlist
-- [ ] Set up project structure: `src/components/`, `src/data/`, `src/lib/`, `src/app/`
-- [ ] Create placeholder data files: `src/data/profile.ts`, `src/data/skills.ts`, `src/data/experience.ts`, `src/data/projects.ts`
-- [ ] Create `Dockerfile` (multi-stage: builder + runner, Node Alpine)
-- [ ] Create `docker-compose.yml`: app service + optional Nginx reverse proxy
-- [ ] Create `.dockerignore`
-- [ ] Test Docker build locally: `docker build -t dennis-portfolio .`
-
-**Verification**:
-```bash
-npm run dev            # dev server starts
-npm run build          # build passes
-docker build -t dennis-portfolio .   # Docker image builds
-docker run -p 3000:3000 dennis-portfolio  # container runs
-```
-
-**Exit criteria**: Dev server starts, build passes, Docker image builds and runs locally.
+- [x] Scaffold Next.js 15 with TypeScript
+- [x] Install dependencies: `framer-motion`, `rss-parser`
+- [x] Configure `next.config.ts`: image domains, standalone output
+- [x] Set up project structure: `src/components/`, `src/data/`, `src/lib/`, `src/app/`
+- [x] Create placeholder data files: `src/data/profile.ts`, `src/data/skills.ts`, `src/data/experience.ts`, `src/data/projects.ts`
+- [x] Create `Dockerfile` (multi-stage: deps → builder → runner, Node 20 Alpine)
+- [x] Create `docker-compose.yml`: app + nginx services
+- [x] Create `.dockerignore`
 
 ---
 
 ### Step 2 — Design System & Global Layout
-**Status**: pending | **Depends on**: Step 1
-
-**Context brief**: Establish visual identity before building sections. All section components import from this foundation.
+**Status**: ✅ done | **Depends on**: Step 1
 
 **Tasks**:
-- [ ] Define color palette in `tailwind.config.ts`: dark bg (#0a0a0a), accent color, text hierarchy
-- [ ] Set up typography (font: Geist via `next/font`)
-- [ ] Create `src/components/layout/Header.tsx`: sticky nav with blur backdrop, links to all sections
-- [ ] Create `src/components/layout/Footer.tsx`: copyright + social links
-- [ ] Create `src/app/layout.tsx`: global layout wrapping Header + Footer
-- [ ] Create reusable primitives: `Section.tsx`, `SectionTitle.tsx`, `Badge.tsx`
-- [ ] Add smooth scroll behavior
-
-**Exit criteria**: Layout renders, nav links scroll to section anchors.
+- [x] Define color palette in `globals.css` (TailwindCSS v4): dark bg `#0a0a0a`, accent `#64ffda`
+- [x] Set up typography (Geist via `next/font`)
+- [x] Create `src/components/layout/Header.tsx`: sticky nav with blur backdrop, numbered links
+- [x] Create `src/components/layout/Footer.tsx`: copyright + social links
+- [x] Create `src/app/layout.tsx`: global layout wrapping Header + Footer
+- [x] Create reusable primitives: `Section.tsx`, `SectionTitle.tsx`, `Badge.tsx`
+- [x] Add smooth scroll behavior
 
 ---
 
 ### Step 3 — Hero / About + Hobby
-**Status**: pending | **Depends on**: Step 2
-
-**Context brief**: First thing every visitor sees. Must communicate who Dennis is within 3 seconds.
+**Status**: ✅ done | **Depends on**: Step 2
 
 **Tasks**:
-- [ ] Populate `src/data/profile.ts`: name, title, tagline, bio, avatar path, social links
-- [ ] Create `src/components/sections/Hero.tsx`: photo, name, animated title, bio, social links row, CTA button
-- [ ] Create `src/components/sections/Hobby.tsx`: personal interests blurb
-- [ ] Animate with Framer Motion `viewport` trigger
-- [ ] Wire up `src/app/page.tsx` to render all sections
+- [x] Populate `src/data/profile.ts`: name, title, tagline, bio, avatar, social links (real data)
+- [x] Create `src/components/sections/Hero.tsx`: avatar with initials fallback, Framer Motion fade-up
+- [x] Create `src/components/sections/Hobby.tsx`: personal interests blurb
+- [x] Wire up `src/app/page.tsx` to render all sections
 
-**Exit criteria**: Hero renders with placeholder content, animations work, links clickable.
+**Pending content**:
+- [ ] Add real avatar photo at `public/avatar.jpg`
+- [ ] Update hobby content in `Hobby.tsx` with real interests
 
 ---
 
 ### Step 4 — Skills Section
-**Status**: pending | **Depends on**: Step 2 | **Parallel with**: Steps 5, 6, 7
+**Status**: ✅ done | **Depends on**: Step 2
 
 **Tasks**:
-- [ ] Populate `src/data/skills.ts`: `{ category: string, items: string[] }[]`
-- [ ] Create `src/components/sections/Skills.tsx`: grouped badge grid, staggered entrance animation
-
-**Exit criteria**: Skills grid renders, categories clear, scroll animation works.
+- [x] Populate `src/data/skills.ts`: grouped by category
+- [x] Create `src/components/sections/Skills.tsx`: badge grid, staggered animation
 
 ---
 
 ### Step 5 — Experience Timeline
-**Status**: pending | **Depends on**: Step 2 | **Parallel with**: Steps 4, 6, 7
+**Status**: ✅ done | **Depends on**: Step 2
 
 **Tasks**:
-- [ ] Populate `src/data/experience.ts`: `{ company, role, period, description, tech[] }[]`
-- [ ] Create `src/components/sections/Experience.tsx`: vertical timeline, animated entries
+- [x] Populate `src/data/experience.ts`: placeholder entries
+- [x] Create `src/components/sections/Experience.tsx`: vertical timeline, animated
 
-**Exit criteria**: Timeline renders, dates readable, tech badges consistent with Skills.
+**Pending content**:
+- [ ] Replace placeholder experience data with real work history
 
 ---
 
 ### Step 6 — Projects Showcase
-**Status**: pending | **Depends on**: Step 2 | **Parallel with**: Steps 4, 5, 7
+**Status**: ✅ done | **Depends on**: Step 2
 
 **Tasks**:
-- [ ] Populate `src/data/projects.ts`: `{ name, description, tech[], liveUrl?, repoUrl?, status, featured }[]`
-- [ ] Create `src/components/sections/Projects.tsx`: card grid, hover effects, Live/GitHub links
+- [x] Populate `src/data/projects.ts`: placeholder projects
+- [x] Create `src/components/sections/Projects.tsx`: card grid, hover effects, links
 
-**Exit criteria**: Project grid renders, hover effects work, external links open correctly.
+**Pending content**:
+- [ ] Replace placeholder project data with real projects
 
 ---
 
 ### Step 7 — Blog / Medium Integration
-**Status**: pending | **Depends on**: Step 2 | **Parallel with**: Steps 4, 5, 6
+**Status**: ✅ done | **Depends on**: Step 2
 
 **Tasks**:
-- [ ] Create `src/lib/medium.ts`: fetch Medium RSS feed, cache with `revalidate: 3600`
-- [ ] Create `src/components/sections/Blog.tsx`: latest 6 posts, graceful empty state
-- [ ] Populate with Dennis's actual Medium username
-
-**Exit criteria**: Blog section shows real posts or clean empty state, build passes.
+- [x] Create `src/lib/medium.ts`: RSS feed via `rss-parser`, `revalidate: 3600`
+- [x] Create `src/components/sections/Blog.tsx`: async RSC, latest 6 posts, empty state
+- [x] Set `MEDIUM_USERNAME = "thanhduy_78508"`
 
 ---
 
 ### Step 8 — Contact + SEO + VPS Deploy
-**Status**: pending | **Depends on**: Steps 3–7
+**Status**: 🔄 in progress | **Depends on**: Steps 3–7
 
 **Tasks**:
-- [ ] Create `src/components/sections/Contact.tsx`: email + social links, no form (MVP)
-- [ ] Add SEO metadata: title, description, OG tags, favicon
-- [ ] Add `robots.txt` and `sitemap.xml`
-- [ ] Fix any remaining lint/TS errors
-- [ ] Build and push Docker image to VPS (via `docker save` / registry / `scp`)
-- [ ] On VPS: `docker-compose up -d` to start container
-- [ ] Configure Nginx on VPS as reverse proxy to container port 3000
+- [x] Create `src/components/sections/Contact.tsx`: email + social links, no form (MVP)
+- [x] Add SEO metadata: title, description, OG tags
+- [x] Add `robots.txt` and `sitemap.xml`
+- [x] Create `Dockerfile` multi-stage build (standalone output)
+- [x] Create `docker-compose.yml` with app + nginx services
+- [x] Create `nginx.conf`: HTTP→HTTPS redirect, proxy_pass to app:3000
+- [x] Create `deploy-fresh.sh`: certbot standalone, auto-renewal cron
+- [x] Create `deploy-update.sh`: git pull → rebuild → rolling restart
+- [x] Create `.github/workflows/deploy.yml`: GitHub Actions CI/CD on push to master
+
+**Remaining**:
+- [ ] **Commit all code to git** ← next immediate step
+- [ ] Set GitHub Secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`, `VPS_PORT`, `APP_DIR`
 - [ ] Point dennisbui.dev DNS A record to VPS IP
-- [ ] Add SSL via Let's Encrypt + Certbot (or Nginx + acme.sh)
-- [ ] Verify dennisbui.dev resolves and serves HTTPS
-- [ ] Final QA: all sections visible, links work, mobile responsive, no console errors
+- [ ] Run `./deploy-fresh.sh` on VPS (first-time setup, SSL cert)
+- [ ] Verify `https://dennisbui.dev` live
 
 **Verification**:
 ```bash
 npm run build
-docker build -t dennis-portfolio .
 curl -I https://dennisbui.dev
 ```
 
@@ -196,5 +180,16 @@ curl -I https://dennisbui.dev
 
 ---
 
-*Generated by /blueprint — 2026-08-03*  
+---
+
+## Content TODOs (after deploy)
+
+- [ ] Add real avatar photo at `public/avatar.jpg`
+- [ ] Update `src/data/experience.ts` with real work history
+- [ ] Update `src/data/projects.ts` with real projects
+- [ ] Update hobby content in `src/components/sections/Hobby.tsx`
+
+---
+
+*Generated by /blueprint — 2026-08-03 | Last updated: 2026-08-04*  
 *PRD: .claude/prds/dennis-portfolio.prd.md*
