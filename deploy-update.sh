@@ -15,7 +15,7 @@ cd "$APP_DIR"
 
 # ─── Pull latest code ─────────────────────────────────────────────────────────
 log "Pulling latest code from git..."
-git pull origin master
+git pull origin main
 
 # ─── Rebuild app image ────────────────────────────────────────────────────────
 log "Rebuilding app Docker image..."
