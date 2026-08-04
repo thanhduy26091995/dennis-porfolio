@@ -30,10 +30,13 @@ export default function Experience() {
                 {job.role}{" "}
                 <span className="text-[var(--accent)]">@ {job.company}</span>
               </h3>
+              <p className="font-mono text-xs text-[var(--foreground-muted)] mt-0.5">
+                {job.location}
+              </p>
               <ul className="mt-3 space-y-2">
-                {job.description.map((point, i) => (
+                {job.description.map((point) => (
                   <li
-                    key={i}
+                    key={point}
                     className="text-sm text-[var(--foreground-muted)] flex gap-2"
                   >
                     <span className="text-[var(--accent)] mt-0.5 shrink-0">▹</span>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
-import Badge from "@/components/ui/Badge";
 
 export default function Projects() {
   return (

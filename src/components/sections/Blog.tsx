@@ -1,8 +1,6 @@
-import { fetchMediumPosts } from "@/lib/medium";
+import { getMediumPosts } from "@/lib/medium";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
-
-export const revalidate = 3600;
 
 function formatDate(dateStr: string) {
   try {
@@ -17,7 +15,7 @@ function formatDate(dateStr: string) {
 }
 
 export default async function Blog() {
-  const posts = await fetchMediumPosts(6);
+  const posts = await getMediumPosts(6);
 
   return (
     <Section id="blog">
