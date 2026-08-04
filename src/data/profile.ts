@@ -17,9 +17,9 @@ export interface Profile {
 
 export const profile: Profile = {
   name: "Dennis (Duy Bui)",
-  title: "Software Engineer",
-  tagline: "Building things for the web.",
-  bio: "A software engineer passionate about crafting clean, performant web experiences. I enjoy working across the stack and sharing what I learn along the way.",
+  title: "Mobile Engineer & Team Lead",
+  tagline: "Building mobile apps that people actually use.",
+  bio: "A mobile engineer with 8+ years shipping native Android and iOS apps, now leading an engineering team at Joblogic. I care about clean architecture, native performance, and bridging the gap between what clients need and what we build.",
   avatar: "/avatar.jpg",
   location: "Vietnam",
   email: "buivuthanhduy@gmail.com",

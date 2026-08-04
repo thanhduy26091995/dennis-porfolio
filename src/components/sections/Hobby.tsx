@@ -5,9 +5,8 @@ import SectionTitle from "@/components/ui/SectionTitle";
 
 const hobbies = [
   { emoji: "☕", label: "Coffee", description: "Fueled by good espresso" },
-  { emoji: "🎮", label: "Gaming", description: "Strategy & indie games" },
-  { emoji: "📚", label: "Reading", description: "Tech blogs & sci-fi" },
-  { emoji: "🎵", label: "Music", description: "Lo-fi while coding" },
+  { emoji: "🎮", label: "Gaming", description: "FC / FIFA with the team" },
+  { emoji: "⚽", label: "Sport", description: "Staying active off-screen" },
 ];
 
 export default function Hobby() {

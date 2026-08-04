@@ -5,19 +5,53 @@ export interface SkillGroup {
 
 export const skills: SkillGroup[] = [
   {
-    category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
+    category: "Languages & UI",
+    items: ["Kotlin", "Swift", "Jetpack Compose", "SwiftUI", "Flutter"],
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "PostgreSQL", "Redis"],
+    category: "Architecture",
+    items: ["Clean Architecture", "MVVM", "System Design"],
   },
   {
-    category: "DevOps",
-    items: ["Docker", "Nginx", "Linux", "GitHub Actions"],
+    category: "Android Libraries",
+    items: [
+      "Coroutines",
+      "Flow",
+      "Hilt",
+      "Retrofit",
+      "Room",
+      "CameraX",
+      "Media3 / ExoPlayer",
+      "ML Kit",
+    ],
   },
   {
-    category: "Tools",
-    items: ["Git", "VS Code", "Figma", "Postman"],
+    category: "Backend & Integration",
+    items: ["REST APIs", "GraphQL", "Firebase"],
+  },
+  {
+    category: "Testing & Quality",
+    items: [
+      "Unit Testing",
+      "UI Testing",
+      "Performance Optimization",
+      "Memory Leak Detection",
+      "Security Best Practices",
+    ],
+  },
+  {
+    category: "DevOps & Release",
+    items: [
+      "CI/CD",
+      "Fastlane",
+      "GitHub Actions",
+      "Azure DevOps",
+      "Google Play Console",
+      "App Store Connect",
+    ],
+  },
+  {
+    category: "Leadership",
+    items: ["Technical Leadership", "Code Review", "Mentoring", "Agile / Scrum"],
   },
 ];
