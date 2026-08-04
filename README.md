@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dennis (Duy Bui) — Portfolio
 
-## Getting Started
+Personal portfolio website for Dennis (Duy Bui), a Mobile Engineer & Team Lead with 8+ years shipping native Android and iOS apps.
 
-First, run the development server:
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router, static export)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animation**: Framer Motion
+- **Deployment**: Docker + nginx on VPS, via GitHub Actions
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/              # Next.js App Router (layout, page, sitemap, robots)
+├── components/
+│   ├── layout/       # Header, Footer
+│   ├── sections/     # Hero, Skills, Experience, Projects, Blog, Hobby, Contact
+│   └── ui/           # Reusable primitives (Badge, Section, SectionTitle)
+├── data/             # Content files — edit these to update the portfolio
+│   ├── profile.ts    # Name, title, bio, social links
+│   ├── skills.ts     # Skill groups and items
+│   ├── experience.ts # Work history
+│   └── projects.ts   # Featured projects
+└── lib/
+    ├── medium.ts     # Fetches latest blog posts from Medium RSS
+    └── constants.ts
+```
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+All content lives in `src/data/`. No backend or CMS needed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| File | What to edit |
+|---|---|
+| `src/data/profile.ts` | Name, title, bio, avatar, location, email, social links |
+| `src/data/skills.ts` | Skill categories and items |
+| `src/data/experience.ts` | Work history entries |
+| `src/data/projects.ts` | Featured projects |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Blog posts are pulled automatically from the Medium RSS feed configured in `src/lib/medium.ts`.
 
-## Deploy on Vercel
+## CI/CD & Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Push to `main` triggers the GitHub Actions workflow (`.github/workflows/deploy.yml`):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Build check** — installs dependencies, type-checks, and builds on Ubuntu
+2. **Deploy** — SSHes into VPS, pulls latest code, rebuilds Docker image, and restarts the app container (nginx stays up)
+
+### Required GitHub Secrets
+
+| Secret | Description |
+|---|---|
+| `VPS_HOST` | VPS IP or hostname |
+| `VPS_USER` | SSH username |
+| `VPS_SSH_KEY` | Private SSH key |
+| `VPS_PORT` | SSH port (default: 22) |
+| `APP_DIR` | Absolute path to the repo on VPS |
+
+### Run with Docker locally
+
+```bash
+docker compose up --build
+```
+
+App is served at `http://localhost:3000`.
