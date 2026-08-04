@@ -128,7 +128,7 @@ Step 1 (Setup)
 ---
 
 ### Step 8 — Contact + SEO + VPS Deploy
-**Status**: 🔄 in progress | **Depends on**: Steps 3–7
+**Status**: ✅ done | **Depends on**: Steps 3–7
 
 **Tasks**:
 - [x] Create `src/components/sections/Contact.tsx`: email + social links, no form (MVP)
@@ -140,13 +140,7 @@ Step 1 (Setup)
 - [x] Create `deploy-fresh.sh`: certbot standalone, auto-renewal cron
 - [x] Create `deploy-update.sh`: git pull → rebuild → rolling restart
 - [x] Create `.github/workflows/deploy.yml`: GitHub Actions CI/CD on push to master
-
-**Remaining**:
-- [ ] **Commit all code to git** ← next immediate step
-- [ ] Set GitHub Secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`, `VPS_PORT`, `APP_DIR`
-- [ ] Point dennisbui.dev DNS A record to VPS IP
-- [ ] Run `./deploy-fresh.sh` on VPS (first-time setup, SSL cert)
-- [ ] Verify `https://dennisbui.dev` live
+- [x] Deploy to VPS — `https://dennisbui.dev` is live 🎉
 
 **Verification**:
 ```bash

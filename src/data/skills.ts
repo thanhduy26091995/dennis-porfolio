@@ -26,8 +26,12 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
+    category: "Frontend",
+    items: ["TypeScript", "React", "Next.js", "Vue.js", "TailwindCSS"],
+  },
+  {
     category: "Backend & Integration",
-    items: ["REST APIs", "GraphQL", "Firebase"],
+    items: ["REST APIs", "GraphQL", "Firebase", ".NET", "Go"],
   },
   {
     category: "Testing & Quality",

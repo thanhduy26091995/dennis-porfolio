@@ -12,7 +12,7 @@ const hobbies = [
 export default function Hobby() {
   return (
     <div className="mt-16">
-      <SectionTitle number="00" title="A Bit More About Me" />
+      <SectionTitle number="06" title="A Bit More About Me" />
       <motion.div
         className="grid grid-cols-2 md:grid-cols-4 gap-4"
         initial={{ opacity: 0, y: 20 }}

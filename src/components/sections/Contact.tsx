@@ -8,7 +8,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 export default function Contact() {
   return (
     <Section id="contact">
-      <SectionTitle number="06" title="Get In Touch" />
+      <SectionTitle number="07" title="Get In Touch" />
       <motion.div
         className="max-w-xl mx-auto text-center"
         initial={{ opacity: 0, y: 20 }}
