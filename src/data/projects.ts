@@ -38,4 +38,13 @@ export const projects: Project[] = [
     status: "active",
     featured: false,
   },
+  {
+    name: "Wedding Wishes — Digital Guestbook",
+    description:
+      "QR-code-based digital guestbook for weddings. Guests scan a code, take a selfie, write a message, and download a branded photo-booth keepsake. Go monolith serving API + React SPA, shipped as a single binary on a VPS behind Caddy.",
+    tech: ["Go", "React", "TypeScript", "Caddy", "VPS"],
+    liveUrl: "https://wishes.dennisbui.dev/",
+    status: "active",
+    featured: true,
+  },
 ];
